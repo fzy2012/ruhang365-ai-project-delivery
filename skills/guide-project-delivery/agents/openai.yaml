@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 项目交付向导"
+  short_description: "帮助零代码用户完成项目决策、实施、验收、维护与交接闭环"
+  default_prompt: "使用 $guide-project-delivery 帮我把一个项目从目标澄清推进到可验证交付。"

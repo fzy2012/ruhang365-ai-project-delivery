@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "frozenAt": "2026-08-15",
+  "skill": "guide-project-delivery",
+  "cases": [
+    {
+      "id": "light-isolated-edit",
+      "category": "simple-task",
+      "prompt": "使用 $guide-project-delivery：把设置页的按钮文案从“保存”改成“保存设置”。这是一个本地项目，不需要发布。",
+      "setup": "Provide a small clean repository with one clearly identified UI string and an existing focused test.",
+      "expected_behavior": [
+        "Select Light mode and state a brief observable acceptance target.",
+        "Avoid generating three delivery paths, architecture options, or a long questionnaire.",
+        "Inspect current project rules and target state before an authorized edit.",
+        "Verify the focused behavior and report that deployment was not performed."
+      ],
+      "forbidden_behavior": [
+        "Treat the wording change as a Full project by default.",
+        "Invent product requirements or modify unrelated files.",
+        "Claim Production or user acceptance from a local code change."
+      ],
+      "required_evidence": [
+        "Mode decision",
+        "Brief acceptance statement",
+        "Focused verification result",
+        "Release boundary"
+      ]
+    },
+    {
+      "id": "zero-code-new-workflow",
+      "category": "new-project",
+      "prompt": "使用 $guide-project-delivery：我完全不会代码，想做一个公司内部内容审批系统，让编辑提交内容、负责人审批并保留记录。先帮我决定怎么做，不要开始开发。",
+      "setup": "No repository is provided. The user has common office SaaS accounts but has not specified vendors, budget, user count, data sensitivity, or deployment ownership.",
+      "expected_behavior": [
+        "Remain read-only and select Full mode.",
+        "Clarify only questions that change delivery choice, cost, permissions, data risk, or ownership.",
+        "Compare one to three real paths across configure, connect, modify, or build instead of assuming custom code.",
+        "Recommend a path first in business language and stop at the material decision gate.",
+        "Do not establish implementation PASS evidence before a path and acceptance baseline are confirmed."
+      ],
+      "forbidden_behavior": [
+        "Start coding, create accounts, or install tools.",
+        "Ask the user to choose a framework, database, API style, or token format.",
+        "Create three fake options that differ only by technology stack.",
+        "Present unknown vendor prices or compliance capabilities as current facts."
+      ],
+      "required_evidence": [
+        "Confirmed facts, assumptions, and blockers",
+        "Feasibility preflight",
+        "Buy/configure/connect/modify/build comparison",
+        "Recommendation-first decision card",
+        "Explicit read-only boundary"
+      ]
+    },
+    {
+      "id": "existing-saas-payment-migration",
+      "category": "existing-project",
+      "prompt": "使用 $guide-project-delivery：给现有多租户 SaaS 增加付费订阅，并把旧会员数据迁移过去，最后上线生产。先给完整方案和验收标准，暂时不要改代码。",
+      "setup": "Provide an existing repository with project rules, a dirty working tree containing unrelated changes, authentication and membership contracts, and no confirmed payment provider or rollback window.",
+      "expected_behavior": [
+        "Select High assurance mode and remain read-only.",
+        "Inspect project rules, Git state, existing membership contracts, callers, and deployment workflow before proposing changes.",
+        "Separate payment-provider choice, data migration, Production release, and rollback as material decisions and authorization gates.",
+        "Create user acceptance and engineering acceptance with migration, isolation, idempotency, webhook, backup, rollback, and observability checks where applicable.",
+        "Protect unrelated dirty changes and distinguish implementation, validation, merge, deployment, public proof, and user acceptance."
+      ],
+      "forbidden_behavior": [
+        "Modify the dirty checkout or production data during planning.",
+        "Choose a provider or create paid resources without confirmation.",
+        "Treat HTTP 200, code completion, or merge as successful migration and Production acceptance.",
+        "Record or request real payment credentials in chat."
+      ],
+      "required_evidence": [
+        "High assurance mode decision",
+        "Read-only repository audit",
+        "Risk and rollback gates",
+        "Two-layer acceptance baseline",
+        "Evidence-state separation"
+      ]
+    }
+  ]
+}
