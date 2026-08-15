@@ -18,6 +18,7 @@ REQUIRED_FILES = [
     ROOT / "docs" / "PRODUCT_SPEC.md",
     ROOT / "docs" / "ACCEPTANCE.md",
     ROOT / "docs" / "LAB_INTEGRATION.md",
+    ROOT / "docs" / "PHASE1_RECEIPT.md",
     SKILL / "SKILL.md",
     SKILL / "agents" / "openai.yaml",
     SKILL / "references" / "decision-card.md",
