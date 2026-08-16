@@ -78,3 +78,7 @@ git diff --check
 - 生产发布：未执行
 
 许可方式将在决定是否发布公开 Core 前单独确认；当前不要默认其已开源。
+
+## 继续开发
+
+新任务接手前先读取 [Phase 1 归档交接](docs/ARCHIVE_HANDOFF_PHASE1.md)，再按其中的 Phase 2A 授权闸门继续。
