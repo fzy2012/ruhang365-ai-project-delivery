@@ -10,6 +10,16 @@ Test whether the Skill changes project-delivery behavior rather than merely prod
 - Provide only the case prompt and setup artifacts.
 - Run the same model, reasoning level, tool access, and repository snapshot for comparable variants.
 
+## Variant prompt materialization
+
+The `prompt` stored in `cases/cases.v1.json` is the canonical explicit-Skill prompt.
+
+- Baseline: remove only the exact leading text `使用 $guide-project-delivery：`; do not otherwise rewrite the business request.
+- Explicit Skill: use the canonical prompt unchanged.
+- Implicit trigger: use the same normalized business request as Baseline, without naming the Skill.
+
+For controlled component comparison, disable long-term memory for every variant so a prior project record cannot reveal the Skill source, expected behavior, rubric, or earlier output. Keep the same global governance, model, reasoning level, ordinary Skill catalog, tool access, and fixture snapshot across variants. Run fixture workspaces outside this source repository so an evaluated agent cannot discover the Skill or rubric by traversing parent directories. This controlled comparison is separate from later user-facing validation with the normal memory configuration.
+
 ## Variants
 
 1. Baseline: run without the Skill.

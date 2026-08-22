@@ -1,6 +1,6 @@
 ---
 name: guide-project-delivery
-description: Guide non-technical or zero-code users from a project idea to a verified delivery by routing task complexity, checking feasibility, comparing buy/configure/connect/modify/build paths, establishing decision gates and two-layer acceptance criteria, coordinating implementation, and producing an evidence-backed handoff. Use when a user wants to start a new project, turn a business goal into an executable delivery plan, compare delivery paths before coding, or manage an end-to-end project through acceptance. Do not use for isolated low-risk edits, code review, or diagnosis unless the user explicitly requests the full delivery workflow.
+description: Project-only; never use for isolated edits, pure questions, status reports, code review, or diagnosis. Use for non-technical or fuzzy goals that require a buy/configure/connect/modify/build decision or explicit end-to-end delivery across multiple stages.
 ---
 
 # Guide Project Delivery
@@ -10,6 +10,8 @@ description: Guide non-technical or zero-code users from a project idea to a ver
 Help the user control goals, experience, cost, and unacceptable risks while taking responsibility for technical judgment, implementation planning, and verification evidence. Do not assume that delivery requires custom code.
 
 Obey system, user, workspace, repository, and safety rules before this workflow. Treat the selected delivery mode as an execution depth, not permission to write, publish, deploy, spend money, or handle real data.
+
+Codex remains the single capability router and executor. This skill owns only project mode, delivery-path decisions, acceptance, evidence state, and handoff. Do not maintain a second capability registry, invoke this skill recursively, or require a specialized implementation skill to call it back.
 
 ## Route the task before expanding the process
 
@@ -26,9 +28,18 @@ Choose one mode:
 |---|---|---|
 | Light | The target is clear, low-risk, reversible, and local | Restate target → define brief acceptance → implement if authorized → verify |
 | Full | A new project or meaningful feature has multiple reasonable delivery paths | Preflight → compare paths → decision → two-layer acceptance → milestones → delivery |
-| High assurance | Payment, permissions, migration, production, real data, compliance, or irreversible operations are involved | Full mode + risk register + rollback + separate approval + stronger evidence |
+| High assurance | Confirmed payment processing, Production mutation, real sensitive data, compliance duties, privileged-access changes, migration, or irreversible operations are involved | Full mode + risk register + rollback + separate approval + stronger evidence |
 
 Do not force three options, long documents, or architecture decisions onto a light task. If this skill was invoked for an isolated low-risk change, state that light mode is sufficient and continue proportionally.
+
+Do not upgrade a workflow to High assurance merely because it includes ordinary roles, approvals, audit history, internal records, or data that may exist later. A new internal workflow remains Full until the request or verified project facts confirm a High-assurance trigger. High assurance is a response to concrete exposure, not a synonym for importance.
+
+Keep process cost proportional:
+
+- Light: keep acceptance inline; do not load a reference template or create project artifacts. The user-facing response must explicitly state `Mode: Light`, one sentence describing the observable acceptance target, the focused verification, and the release boundary.
+- Full before path selection: recommend first, compare no more than three real paths, and stop at the decision gate. Include a compact `Confirmed facts / Assumptions / Blockers` preflight. Surface only unknowns that can change the path, but do not silently omit vendor access, budget or timing, user scale, data sensitivity, or the account and operating owner when they are unknown; group them into no more than three business questions. Do not produce implementation milestones or a full acceptance matrix yet.
+- High assurance planning: merge repeated risks and gates. By default, present at most five decision-driving risks, five to eight user-acceptance items, and eight to twelve engineering-acceptance items; exceed these only when verified contracts or the user's requested scope require it.
+- Do not repeat the same authorization boundary, risk, or evidence state in multiple sections. A longer response is not stronger evidence.
 
 ## Stage 1: Establish authority and delivery feasibility
 
@@ -51,6 +62,10 @@ Check delivery feasibility early:
 - ownership of domains, data, infrastructure, and long-term costs.
 
 Report only facts that change the decision or block delivery. Never ask the user to paste secrets into chat.
+
+If the actual repository, data contract, environment, or operating evidence is unavailable, do not compensate with a longer speculative architecture. Give a concise provisional recommendation, label the missing evidence as a blocker, and stop at the next decision or access gate.
+
+Treat current external prices, product capabilities, and compliance claims as evidence-sensitive facts. A remembered claim, URL, or search-result snippet is not verification. If such a fact materially changes the recommendation, open a primary official source and state the observation date; otherwise label it unverified or omit it. Prefer provider categories over named vendors until jurisdiction, commercial responsibility, existing accounts, scale, and ownership are known.
 
 If the user requested analysis, planning, or “do not change anything,” remain read-only. Do not treat approval of a plan as approval to deploy or publish.
 
@@ -78,11 +93,15 @@ Offer one to three genuinely different paths. Do not create fake alternatives by
 
 Give a recommendation first. Explain it in business language. Use [decision-card.md](references/decision-card.md) when the user must choose.
 
+When a provider choice depends on jurisdiction, merchant-of-record responsibility, volume, existing accounts, or operating ownership, compare the provider categories and confirm those business constraints before recommending a named vendor. Do not add live pricing merely to make the comparison look concrete.
+
 Stop for confirmation only when the choice materially changes scope, experience, cost, data, security, ownership, lock-in, maintenance, or irreversibility. Otherwise record the assumption and continue.
 
 ## Stage 3: Establish the acceptance baseline
 
-After a delivery path is selected, load [acceptance-baseline.md](references/acceptance-baseline.md).
+For Full and High assurance, load [acceptance-baseline.md](references/acceptance-baseline.md) after a delivery path is selected. For Light, keep the observable target and focused engineering check inline without loading the template.
+
+If the user explicitly requests a complete plan and acceptance criteria before a material provider or path choice is resolved, do not defer the entire baseline. Define provider-neutral user and engineering acceptance for the stable outcomes, contracts, failure states, migration, recovery, and evidence boundaries; mark provider-specific items as conditional or `BLOCKED`, then keep the unresolved choice as a separate decision gate.
 
 Create two layers:
 
