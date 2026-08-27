@@ -14,6 +14,7 @@ SKILL = ROOT / "skills" / "guide-project-delivery"
 
 REQUIRED_FILES = [
     ROOT / "AGENTS.md",
+    ROOT / "LICENSE",
     ROOT / "README.md",
     ROOT / "docs" / "PRODUCT_SPEC.md",
     ROOT / "docs" / "ACCEPTANCE.md",
@@ -81,6 +82,36 @@ def validate_skill() -> None:
         if not (SKILL / "references" / ref).is_file():
             fail(f"Referenced file does not exist: {ref}")
 
+    agent_metadata = (SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8")
+    if "allow_implicit_invocation: false" in agent_metadata:
+        fail("Skill must remain available for implicit project routing")
+
+
+def validate_distribution() -> None:
+    license_path = ROOT / "LICENSE"
+    license_text = license_path.read_text(encoding="utf-8")
+    require_text(
+        license_text,
+        license_path,
+        ["MIT License", "Permission is hereby granted", 'THE SOFTWARE IS PROVIDED "AS IS"'],
+    )
+
+    readme_path = ROOT / "README.md"
+    readme = readme_path.read_text(encoding="utf-8")
+    require_text(
+        readme,
+        readme_path,
+        [
+            "## 安装到 Codex",
+            "install-skill-from-github.py",
+            "--repo fzy2012/ruhang365-ai-project-delivery",
+            "--path skills/guide-project-delivery",
+            "日常使用不需要点名",
+            "更新、停用与恢复",
+            "MIT License",
+        ],
+    )
+
 
 def validate_evals() -> None:
     path = ROOT / "evals" / "cases" / "cases.v1.json"
@@ -122,6 +153,7 @@ def main() -> int:
         fail(f"Missing required files: {', '.join(map(str, missing))}")
 
     validate_skill()
+    validate_distribution()
     validate_evals()
     print("PASS: repository static contract is valid")
     return 0

@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-**Preview。** 当前仓库已建立独立项目、Skill 核心、参考模板、冻结评测和安装前 baseline；公开 GitHub 仓库已经创建，RHZL 入行实验室 Preview 接入已在隔离分支完成。正式显式前向评测、全局安装和生产发布尚未完成。
+**Preview。** Skill 核心、参考模板和冻结评测已经建立；正式显式评测与隔离环境隐式路由均已通过，GitHub 安装路径也已在隔离目录验证。当前仍需完成真实新用户安装验收和重复稳定性验证，不能把单次受控运行写成长期稳定。
 
 ## 核心承诺
 
@@ -57,6 +57,38 @@ runs/                           独立评测原始输出，默认不进入 Git
 
 除非用户明确要求完整交付流程，这些任务应使用轻量模式。
 
+## 安装到 Codex
+
+最简单的方式是在 Codex 中发送下面这句话：
+
+```text
+请安装这个 Skill：https://github.com/fzy2012/ruhang365-ai-project-delivery/tree/main/skills/guide-project-delivery
+安装完成后告诉我，并提醒我新建一个 Codex 任务开始使用。
+```
+
+也可以使用 Codex 自带的官方安装器：
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo fzy2012/ruhang365-ai-project-delivery \
+  --path skills/guide-project-delivery
+```
+
+安装成功后，新建一个 Codex 任务，直接描述项目想法即可，例如：
+
+```text
+我想做一个帮助新员工完成入职手续的内部工具，但不知道应该购买、配置现有系统，还是自己开发。请带我一步步推进。
+```
+
+日常使用不需要点名 `guide-project-delivery`。Codex 会在“非技术用户、目标模糊、需要比较交付路径或端到端推进”的项目场景中自动匹配；纯问答、代码审查、故障诊断、状态报告和孤立小修改不会进入完整项目流程。
+
+### 更新、停用与恢复
+
+- 更新：先关闭 Codex，把 `~/.codex/skills/guide-project-delivery` 移到 Skill 目录之外作为备份，再重新执行安装；验证新版本后再处理备份。
+- 临时停用：把该目录移出 `~/.codex/skills/`，然后新建 Codex 任务验证它不再被发现。
+- 恢复：关闭 Codex，把备份目录移回 `~/.codex/skills/guide-project-delivery`，再新建任务使用。
+- 安装器发现同名目录时会停止，不要覆盖现有目录；先保留备份，确保回退路径有效。
+
 ## 本地验证
 
 ```bash
@@ -71,14 +103,17 @@ git diff --check
 - 项目骨架：Phase 1 本地搭建完成
 - Skill schema：官方结构验证与本地静态合同已通过
 - Codex 项目：已登记到用户指定目录
-- 独立前向评测：安装前 baseline 已完成；正式显式 Skill 评测尚未完成
+- 独立前向评测：正式显式评测 3 个案例 × 3 个裁判全部通过，零 critical violation
+- 隐式触发：隔离干净环境中 3/3 项目正例正确触发、5/5 普通任务负例未误触发；重复稳定性仍待验证
+- 安装路径：官方 GitHub 安装器已在隔离临时目录验证，安装内容与仓库 Skill 一致
 - 全局安装：未执行
 - 远程仓库：已创建 <https://github.com/fzy2012/ruhang365-ai-project-delivery>，并配置为本仓库 `origin`
-- 入行实验室：已在隔离 RHZL 分支实现 Preview；是否已经提交、推送和部署以项目状态回执及 Git/Vercel 现场为准
-- 生产发布：未执行
+- 入行实验室：Preview 已在 RHZL Production 发布，并明确区分简化模板与需要安装的完整 Skill
+- 生产发布：RHZL 介绍页已发布；Skill 本身不需要独立部署
+- 用户价值：尚未完成真实新用户从发现、安装到首次自动触发的独立验收
 
-仓库当前公开可见，但尚未附加开源许可证；公开可见不等于已授予复制、修改或再分发权利。
+本项目采用 [MIT License](LICENSE)。
 
 ## 继续开发
 
-新任务接手前先读取 [Phase 1 归档交接](docs/ARCHIVE_HANDOFF_PHASE1.md)，再按其中的 Phase 2A 授权闸门继续。
+下一道产品闸门是邀请一位此前未参与评测的 Codex 用户，按本页安装入口完成首次使用；实现、安装、自动触发和用户是否真正得到帮助分别记录。
