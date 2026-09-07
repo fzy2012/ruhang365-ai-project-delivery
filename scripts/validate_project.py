@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -20,11 +21,14 @@ REQUIRED_FILES = [
     ROOT / "docs" / "ACCEPTANCE.md",
     ROOT / "docs" / "LAB_INTEGRATION.md",
     ROOT / "docs" / "PHASE1_RECEIPT.md",
+    ROOT / "docs" / "PONYTAIL_REBUILD.md",
     SKILL / "SKILL.md",
     SKILL / "agents" / "openai.yaml",
     SKILL / "references" / "decision-card.md",
     SKILL / "references" / "acceptance-baseline.md",
     SKILL / "references" / "delivery-card.md",
+    SKILL / "references" / "ponytail-license.md",
+    SKILL / "references" / "ponytail-v4.9.0.md",
     ROOT / "evals" / "cases" / "cases.v1.json",
     ROOT / "evals" / "protocol.md",
     ROOT / "evals" / "rubric.md",
@@ -94,6 +98,25 @@ def validate_distribution() -> None:
         license_text,
         license_path,
         ["MIT License", "Permission is hereby granted", 'THE SOFTWARE IS PROVIDED "AS IS"'],
+    )
+
+    upstream_path = SKILL / "references" / "ponytail-v4.9.0.md"
+    upstream_sha256 = hashlib.sha256(upstream_path.read_bytes()).hexdigest()
+    expected_sha256 = "1316a2f3f95741d2300b116fe0c2d81ce4a9568656ed0a62643f54aaf09957f2"
+    if upstream_sha256 != expected_sha256:
+        fail(f"Bundled Ponytail v4.9.0 component hash mismatch: {upstream_sha256}")
+
+    attribution_path = SKILL / "references" / "ponytail-license.md"
+    attribution = attribution_path.read_text(encoding="utf-8")
+    require_text(
+        attribution,
+        attribution_path,
+        [
+            "DietrichGebert/ponytail",
+            "0a4dd63ad4541f4f655c4108a295916f3c1d8fda",
+            "MIT License",
+            "Copyright (c) 2026 DietrichGebert",
+        ],
     )
 
     readme_path = ROOT / "README.md"
