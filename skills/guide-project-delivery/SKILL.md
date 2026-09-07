@@ -9,9 +9,9 @@ Help the owner reach one observable result with the least necessary work. The ow
 
 ## Baseline component and adaptation boundary
 
-Before implementing or changing code, read [ponytail-v4.9.0.md](references/ponytail-v4.9.0.md). This is the unchanged upstream Skill from Ponytail v4.9.0, commit 0a4dd63ad4541f4f655c4108a295916f3c1d8fda. Preserve its understanding-first ladder, reuse, root-cause repair, minimal implementation and correctness safeguards.
+Derived from Ponytail v4.9.0, commit 0a4dd63ad4541f4f655c4108a295916f3c1d8fda. The unchanged [upstream component](references/ponytail-v4.9.0.md) is retained for source audits and upstream behavior investigations; read it only for those needs. See [source and MIT terms](references/ponytail-license.md).
 
-This entrypoint adapts only activation and communication: apply Ponytail while implementing this project, not to all future unrelated turns; describe results in business language instead of requiring code-first output. Its intensity commands and hooks are not installed. Follow host and user authority rules over either file. See [source and MIT terms](references/ponytail-license.md).
+Apply its implementation principles here: understand the affected flow; reuse existing code, standard libraries, native features and installed dependencies before adding code; repair root causes; choose the smallest sufficient implementation with a meaningful, risk-proportional check. Preserve requirements, security, accessibility and data-loss protection. These principles apply within this project. Ignore upstream activation, persistence, intensity and code-first formatting; hooks are not installed. Host and user instructions take priority.
 
 ## Guide one useful step at a time
 
@@ -19,7 +19,9 @@ Read available facts before questioning the owner. Identify who needs what resul
 
 Ask a focused business question only when its answer changes that next step. Do not ask a beginner to choose frameworks, databases or test strategy. Explain unfamiliar concepts only when relevant to a decision. Continue already authorized safe actions; do not request renewed permission just because a stage changed.
 
-Use these depths internally, without requiring mode labels in user responses:
+At meaningful progress or decision changes, briefly show the goal, current step, any owner decision needed and next step in business language. Omit unchanged or inapplicable items. Resume from existing decisions, artifacts and evidence; update existing project state when continuity needs it.
+
+Select depth internally; do not show mode labels unless the owner asks:
 
 - Light: clear local work; implement and verify inline. Explicit invocation for an isolated edit does not require project ceremony.
 - Full: uncertain project; progressively resolve decisions and deliver first value.
@@ -37,7 +39,7 @@ Use [decision-card.md](references/decision-card.md) only when a material choice 
 
 Define entry → owner action → expected result. Keep acceptance inline unless multiple independent risks justify [acceptance-baseline.md](references/acceptance-baseline.md). Do not generate a full plan or matrix merely because a template exists.
 
-During implementation load the upstream component above and use the host's actual specialist tools. No second registry or mandatory private Skills. Build a small complete path before adding features. Preserve explicit requirements; reduced scope is a business decision, not permission to silently omit features.
+Use the host's actual specialist tools when needed; no second registry or mandatory private Skills. Load references only when they change a decision or result. Reuse still-applicable evidence; avoid duplicate investigations, unchanged checks and routine multi-reviewer passes. Build a small complete path, then finish the agreed scope; never omit requirements to reduce effort or claim success.
 
 Analysis-only stays read-only. An implementation request permits its scoped local work; publishing, spending, production mutation and other externally consequential actions need applicable authorization. If one action is blocked, finish independent preparation and state the concrete missing decision or access. Do not replace missing environment evidence with speculative architecture.
 
@@ -47,4 +49,4 @@ Observe the real path and relevant failures. PASS means actually verified; FAIL 
 
 Repair observed failures within scope and rerun affected checks; never lower the target to manufacture success. Separate implementation, checks, commit, push, deployment and user value when reporting those states.
 
-Give the owner an entry, an action and an expected result. State transient storage, missing access, recurring costs or recovery limits when relevant. Use [delivery-card.md](references/delivery-card.md) for actual handoff or maintenance needs, omit irrelevant fields, and update existing state rather than creating competing documents. Stop expanding once the agreed outcome is verified.
+For implementation, completion requires a usable entry, an owner action and an observed result matching the agreed outcome, including relevant failure behavior. A plan, code or recommendation link alone does not complete delivery. Report actual owner acceptance separately; never infer it from AI checks. State missing access, transient storage, costs or recovery limits that affect use. Use [delivery-card.md](references/delivery-card.md) only for handoff or maintenance needs. Stop expanding once the agreed outcome is verified.

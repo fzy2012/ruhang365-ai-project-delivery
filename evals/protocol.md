@@ -52,3 +52,17 @@ Before calling the Skill behaviorally validated:
 - each case must reach the rubric threshold;
 - at least one new-project run must be reviewed by the target non-technical user;
 - implicit triggering remains a separate gate after installation.
+
+## Outcome and cost gate — 2026-09-08
+
+This additional gate records the owner's revised product requirement. It does not rewrite frozen V1 cases, fixtures, rubric or historical results. Freeze any new journey prompts, scripted owner replies, acceptance targets and comparison settings before their runs.
+
+- Evaluate natural multi-turn journeys: a fuzzy idea through a usable result, and resuming an unfinished project; include nearby ordinary-task negatives. Owners should see useful progress and business decisions, not internal mode labels. Explicit invocation remains an internal test variant; user-facing acceptance requires automatic matching.
+- The main cost comparator is the same Codex environment without this Skill versus with it. Keep host rules, other capabilities, model, reasoning, tools, fixture and cache policy equal. Run the existing configured environment and ordinary Codex separately; do not pool them. An upstream-only comparison answers baseline preservation, not the cost of adding this Skill to Codex.
+- Compare the complete agreed journey, including relevant failure checks, retries, rework and all initiated runs. Keep failed, blocked and unknown attempts in the record and cost total. An unfinished baseline provides no successful-delivery denominator; record that outcome without inventing a savings percentage.
+- Quality and acceptance must not regress. Extra questions, user effort, missing requirements or omitted verification cannot fund a claimed saving. Record time, owner interventions and tool calls alongside results; do not disguise shifted work as reduced cost.
+- Freeze the cost basis before viewing results. Prefer provider money or account-credit usage; otherwise a reproducible estimate needs verified model identity, pricing and billing semantics. Report cached input, uncached input, output and reasoning usage without double-counting. Raw tokens alone are diagnostic, not proof of monetary savings. Record paid tool charges too; keep human time separate unless a valuation was agreed in advance. No paid operation is authorized by this protocol.
+- For matched completed journeys, cost must be **at most 110%** of the Codex-only baseline; the target is **100% or lower**, preferably a reduction. Apply the ceiling to each evaluated scenario and the aggregate, so savings on an easy case cannot hide an expensive regression. Better claimed quality does not automatically waive the ceiling. A zero-cost baseline requires an absolute comparison, not division by zero.
+- Missing model or cost evidence leaves cost compliance **unverified**; missing charges are not zero. Preserve available usage evidence and state the limitation. Static checks, fewer instruction words and an isolated smoke cannot establish this gate.
+
+Start with one paired pilot on a real fuzzy-project journey. If it fails the quality or cost ceiling, investigate that failure before expanding the run set. A passing pilot needs repeat and unseen-journey confirmation under pre-frozen settings before claiming a reproducible gain. Record the result in the existing run receipt; do not build a separate cost platform.
