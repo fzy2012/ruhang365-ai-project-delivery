@@ -3,6 +3,9 @@
 Adapted from DietrichGebert/ponytail, skills/ponytail/SKILL.md, v4.9.0, commit 0a4dd63ad4541f4f655c4108a295916f3c1d8fda.
 Source: https://github.com/DietrichGebert/ponytail/tree/0a4dd63ad4541f4f655c4108a295916f3c1d8fda
 
+Upstream check (2026-09-27): v4.10.0 was released on 2026-09-14. The upstream `skills/ponytail/SKILL.md` is byte-for-byte identical in v4.9.0 and v4.10.0 (SHA-256 `1316a2f3f95741d2300b116fe0c2d81ce4a9568656ed0a62643f54aaf09957f2`). The retained v4.9.0 component therefore also matches the current release's core Skill; v4.10.0's other adapter and hook changes are not bundled here.
+Release: https://github.com/DietrichGebert/ponytail/releases/tag/v4.10.0
+
 Ruhan365 changes: project-scoped automatic matching, outcome-first progressive guidance, project reuse decisions, acceptance and handoff. The entrypoint condenses the implementation principles; the unchanged upstream file is retained for source audits and behavior investigations, not loaded for routine implementation. Upstream activation, persistence, intensity commands and code-first output are excluded. No upstream hooks, branding, assets or runtime dependencies are bundled. This loading adaptation still needs behavioral comparison; upstream benchmark claims do not establish its effectiveness.
 
 MIT License

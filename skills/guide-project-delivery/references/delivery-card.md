@@ -1,6 +1,6 @@
 # Project delivery card
 
-Use this card for Full or High assurance delivery and any handoff. Omit fields that are genuinely not applicable; do not invent values.
+Use this card only when handoff or maintenance needs justify it; prefer updating existing project materials. Omit fields that are genuinely not applicable; do not invent values.
 
 ```markdown
 # 项目交付卡

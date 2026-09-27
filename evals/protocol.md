@@ -66,3 +66,7 @@ This additional gate records the owner's revised product requirement. It does no
 - Missing model or cost evidence leaves cost compliance **unverified**; missing charges are not zero. Preserve available usage evidence and state the limitation. Static checks, fewer instruction words and an isolated smoke cannot establish this gate.
 
 Start with one paired pilot on a real fuzzy-project journey. If it fails the quality or cost ceiling, investigate that failure before expanding the run set. A passing pilot needs repeat and unseen-journey confirmation under pre-frozen settings before claiming a reproducible gain. Record the result in the existing run receipt; do not build a separate cost platform.
+
+## Interactive guidance pilot — 2026-09-27
+
+Use [guidance-dialogue.v2.md](guidance-dialogue.v2.md) to test whether the guide asks useful business questions, incorporates answers into the project, and advances authorized work across the first experience and feedback. Keep the V1 cases and thresholds unchanged. Compare the pre-edit Skill, candidate, and no-guide baseline only when the same model, reasoning, tools, requirement guidance and initial artifacts can be held constant; otherwise label the affected comparison uncontrolled and report the direct behavior only. Run task-negative and authority-boundary probes for the candidate as needed. Separate a saved transcript or local prototype from owner acceptance and from any cost claim.
